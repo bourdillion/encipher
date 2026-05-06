@@ -1,3 +1,4 @@
+pub mod caesar;
 pub mod utils;
 
 pub trait Cipher {
