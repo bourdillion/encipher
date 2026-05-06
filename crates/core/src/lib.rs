@@ -1,5 +1,6 @@
 pub mod affine;
 pub mod caesar;
+pub mod error;
 pub mod utils;
 
 pub trait Cipher {
