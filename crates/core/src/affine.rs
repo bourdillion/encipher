@@ -66,3 +66,27 @@ impl Cipher for Affine {
             .collect()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_encryption_works() {
+        let affine = Affine::new(5, 8);
+        let plain_text = "Hello";
+        let expected_result = "Rclla";
+        let result = affine.encrypt(plain_text);
+        assert_eq!(result, expected_result);
+    }
+
+    #[test]
+    fn test_encrypt_and_decrypt() {
+        let affine = Affine::new(5, 8);
+        let plain_text = "Hello world, stuff is serious here";
+        let cipher = affine.encrypt(plain_text);
+        let result = affine.decrypt(cipher.as_str());
+
+        assert_eq!(plain_text, result);
+    }
+}
