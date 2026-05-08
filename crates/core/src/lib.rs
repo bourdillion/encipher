@@ -2,6 +2,7 @@ pub mod affine;
 pub mod caesar;
 pub mod error;
 pub mod utils;
+pub mod vigenere;
 
 pub trait Cipher {
     fn encrypt(&self, plaintext: &str) -> String;

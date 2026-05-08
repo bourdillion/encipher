@@ -3,5 +3,13 @@
 version = 4
 
 [[package]]
+name = "ciphers-analysis"
+version = "0.1.0"
+
+[[package]]
+name = "ciphers-cli"
+version = "0.1.0"
+
+[[package]]
 name = "core"
 version = "0.1.0"
