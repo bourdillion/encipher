@@ -49,6 +49,7 @@ impl Cipher for Affine {
             .collect()
     }
 
+    /// decrypt cipher
     fn decrypt(&self, ciphertext: &str) -> String {
         ciphertext
             .chars()
