@@ -1,7 +1,9 @@
 use crate::Cipher;
 use crate::utils::alphabet::{ALPHABET_SIZE, char_to_index, index_to_char};
 use crate::utils::modular::mod_pos;
-
+/*
+The Caesar cipher is a substitution cipher that shifts each letter in the plaintext by a fixed number of positions in the alphabet (e.g., shift of 3 turns 'A' to 'D').
+*/
 pub struct Caesar {
     shift: u8,
 }
@@ -57,6 +59,7 @@ impl Cipher for Caesar {
     }
 }
 
+/* Test implementation for Caesar Cipher */
 #[cfg(test)]
 mod tests {
     use super::*;
