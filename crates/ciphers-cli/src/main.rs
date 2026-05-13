@@ -2,6 +2,7 @@ use clap::{Parser, Subcommand};
 use core::Cipher;
 use core::affine::Affine;
 use core::caesar::Caesar;
+use core::playfair::Playfair;
 use core::vigenere::Vigenere;
 
 #[derive(Parser)]
@@ -50,6 +51,17 @@ enum CipherCommand {
 
         text: String,
     },
+
+    /// Playfair cipher with a keyword
+    Playfair {
+        #[arg(short, long)]
+        key: String,
+
+        #[arg(short, long)]
+        decrypt: bool,
+
+        text: String,
+    },
 }
 
 fn main() {
@@ -90,6 +102,15 @@ fn main() {
 
         CipherCommand::Vigenere { key, decrypt, text } => {
             let cipher = Vigenere::new(&key);
+            if decrypt {
+                cipher.decrypt(&text)
+            } else {
+                cipher.encrypt(&text)
+            }
+        }
+
+        CipherCommand::Playfair { key, decrypt, text } => {
+            let cipher = Playfair::new(&key);
             if decrypt {
                 cipher.decrypt(&text)
             } else {
